@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body id="3" >
+   <h1>The Fortune Teller App</h1>
+<hr>
+<h2>I will ask some question and you must answer them!</h2>
+<div  style="display: inline;"><img style="display: inline; width: 100px;" src="https://lh3.googleusercontent.com/proxy/E4bnHH3OOGwZ0AfmORwVIBbA3gh0uHHxmlQlUalAStiQhaWApSFzwhE-AU3Ciqq-sODHmNLLFYY8XTPHs_fQ6g4S_H2bKLJC9-fHECFcJApd2tKjuOxxm36iSQ" alt=""> <h4 style="display: inline;">Your destiny lies in your own hands</h4><img style="display: inline; width: 100px; transform: scaleX(-1);" src="https://lh3.googleusercontent.com/proxy/E4bnHH3OOGwZ0AfmORwVIBbA3gh0uHHxmlQlUalAStiQhaWApSFzwhE-AU3Ciqq-sODHmNLLFYY8XTPHs_fQ6g4S_H2bKLJC9-fHECFcJApd2tKjuOxxm36iSQ" alt=""> </div>
+
+    <div  id="rates">
+      
+       
+  
+    
+        <br>
+        <label class="a" for="r1">Fire</label> <input type="radio" id="r1" name="option"  value="Fire"> <br>
+        <label class="a" for="r2">Water</label> <input type="radio" id="r2" name="option" value="Water"> <br>
+        <label class="a" for="r3">Earth</label> <input type="radio" id="r3" name="option" value="Earth" checked="checked"><br>
+        <label class="a" for="r4">Air</label> <input type="radio" id="r4" name="option" value="Air" checked="checked"><br>
+      </div>
+<button id = "1" type="submit"  onclick="any()">Submit</button>
+<h1>Results</h1>
+<p id="9"></p>
+
+
+
+
+<br>
+<h1 style="text-align: center;">The Crystal Ball</h1>
+<div style="margin-left: 550px;" class="abc"></div>
+<h2 style="text-align: center;">Hover to work</h2>
+   
+<script>
+    
+    var state = 0;
+    var thing = 0;
+    var score = 0;
+    var o = [["Money", "Donation", "Saving","Nothing"],["Red","Blue","Green","White"],["Confident","Patient","Emphathetic","Analytical"]]
+    var scoreArray =[50,40,30,20]
+    
+    function start(state){
+var rates = document.getElementsByName("option");
+var labels = document.getElementsByClassName("a")
+var answer;
+
+for(var i = 0; i < rates.length; i++){
+   if(state<o.length){
+    labels[i].innerHTML = o[state][i]
+    rates[i].value = o[state][i]
+   
+    if(rates[i].checked){
+        score = score + scoreArray[i]
+      
+    }
+    }
+    else{
+        document.getElementById("1").disabled =true; 
+        document.getElementById("1").innerHTML = "Ended"
+        if(score>=150){
+            document.getElementById("9").innerHTML="Your element is fire! You are a confident person, you like red colour, you might be short-tempered too! You are enthusiaistic and you like to take control. You like excitement, exploring and action!"
+        }
+        else if(score>=100 &&score<=150){
+            document.getElementById("9").innerHTML = "Your element is water! You are an intuitive person, you like blue colour, you might be emphaethetic too! You have deep-emotions and you are very private!"
+        }
+        else if(score>=75 &&score<=100){
+            document.getElementById("9").innerHTML = "Your element is earth! You are an physical, stable person, you like green colour, you might be patient too! You take one step at a time and you are goal oriented!"
+        }
+        else{
+            document.getElementById("9").innerHTML = "Your element is air! You are an social, phylisophic person, you like white colour, you might be analytical too! You share your thoughts to the world and you are intellectually stimulating!"
+        }
+    }
+
+
+
+    
+    
+    
+        
+}
+console.log(score)
+}
+
+function any(){
+       
+       start(state);
+       state+=1
+   }
+    
+</script>
+</body>
+<style>
+ body{
+     animation: colourchange 10s infinite;
+     
+ }
+ @keyframes colourchange {
+     0%{
+         background-color: #ff0000;
+     }
+     25%{
+         background-color: #ec0000;
+     }
+     50%{
+         background-color: #ff7400;
+     }
+     75%{
+         background-color:	#f2d000;
+     }
+     100%{
+         background-color:	#ffdb00;
+     }
+ }
+ .abc{
+border-radius: 50%;
+   border: black 2px solid;
+   height: 100px;
+   width: 100px;
+   transition: transform 5s;
+
+ }
+ .h1{
+     animation: change 5s;
+ }
+ .abc:hover{
+     animation: change 5s;
+    
+     
+ }
+ @keyframes change{
+    0%{
+         background-color: white;
+         opacity: 0;
+     }
+     25%{
+         background-color: gray;
+         opacity: 0.25;
+     }
+     50%{
+         background-color: lightblue;
+         opacity: 0.5;
+     }
+     75%{
+         background-color:	cyan;
+         opacity: 0.75;
+     }
+     100%{
+         background-color:	darkblue;
+         opacity: 1;
+     }
+ 
+ }
+</style>
+</html>
+
+
